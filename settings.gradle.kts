@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Faraz-learning-project"
-include("app")
+include(":app")

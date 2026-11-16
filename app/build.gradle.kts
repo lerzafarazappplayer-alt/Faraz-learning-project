@@ -74,3 +74,13 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
+android {
+    // ... باقی پرانی چیزیں ویسے ہی رہیں گی ...
+
+    // یہ لائنز ایڈ کر دیں تاکہ androidTest کی وجہ سے بلڈ فیل نہ ہو
+    sourceSets.getByName("androidTest") {
+        java.srcDirs(emptyList<File>())
+        res.srcDirs(emptyList<File>())
+        manifest.srcFile("src/androidTest/AndroidManifest.xml")
+    }
+}

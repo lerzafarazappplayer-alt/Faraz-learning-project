@@ -18,17 +18,15 @@ import androidx.compose.ui.unit.sp
 
 /**
  * Faraz's Kotlin + Jetpack Compose Playground (App.kt)
- * Edit any composable below, push to GitHub, and download your Debug APK from Actions!
+ * Edit any UI code inside App(), push to GitHub, and download the Debug APK from Actions!
  */
 @Composable
 fun App() {
-    // اسٹیٹس ویری ایبلز (State Variables)
     var isPlaying by remember { mutableStateOf(false) }
     var volumeLevel by remember { mutableStateOf(0.7f) }
     var sliderPosition by remember { mutableStateOf(45f) }
     var notificationsEnabled by remember { mutableStateOf(true) }
 
-    // مین لے آؤٹ (Main Layout)
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -53,7 +51,7 @@ fun App() {
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                // 1. ہیڈر سیکشن (Header Section)
+                // 1. ہیڈر سیکشن (Header)
                 item {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -74,7 +72,6 @@ fun App() {
                             )
                         }
 
-                        // پروفائل آئیکن گول دائرہ (Profile Avatar)
                         Box(
                             modifier = Modifier
                                 .size(48.dp)
@@ -92,7 +89,7 @@ fun App() {
                     }
                 }
 
-                // 2. مین پلیئر کارڈ (Main Player Card)
+                // 2. مین پلیئر کارڈ (Player Card)
                 item {
                     Card(
                         modifier = Modifier.fillMaxWidth(),
@@ -120,7 +117,6 @@ fun App() {
 
                             Spacer(modifier = Modifier.height(20.dp))
 
-                            // پروگریس بار (Seekbar)
                             Slider(
                                 value = sliderPosition,
                                 onValueChange = { sliderPosition = it },
@@ -137,7 +133,6 @@ fun App() {
 
                             Spacer(modifier = Modifier.height(16.dp))
 
-                            // پلے / پاز بٹن (Play / Pause Button)
                             Button(
                                 onClick = { isPlaying = !isPlaying },
                                 shape = CircleShape,
@@ -155,7 +150,7 @@ fun App() {
                     }
                 }
 
-                // 3. سیٹنگز اور کنٹرولز سیکشن (Settings Card)
+                // 3. سیٹنگز کارڈ (Settings Card)
                 item {
                     Card(
                         modifier = Modifier.fillMaxWidth(),
@@ -175,7 +170,6 @@ fun App() {
                                 fontSize = 16.sp
                             )
 
-                            // والیوم کنٹرول (Volume Control)
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -190,7 +184,6 @@ fun App() {
                                 modifier = Modifier.fillMaxWidth()
                             )
 
-                            // نوٹیفیکیشن ٹوگل (Notifications Switch)
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -206,7 +199,7 @@ fun App() {
                     }
                 }
 
-                // 4. فوٹر نوٹس (Footer)
+                // 4. فوٹر (Footer)
                 item {
                     Box(
                         modifier = Modifier

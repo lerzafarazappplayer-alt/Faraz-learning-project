@@ -23,7 +23,7 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      - - name: Accept Android SDK Licenses
+      - name: Accept Android SDK Licenses
         run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
 
       - name: Make Gradle Wrapper Executable
@@ -41,3 +41,4 @@ jobs:
           name: Faraz-Larza-Player-Debug-APK
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+        
